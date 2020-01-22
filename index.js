@@ -13,7 +13,7 @@ let giveId = 0;
 
 
 
-createNote = (str, frt, dur, fngr) => {
+const createNote = (str, frt, dur, fngr) => {
     if (str == undefined || str < 0 || str > 5) return;
 
     var note = {
@@ -34,12 +34,12 @@ createNote = (str, frt, dur, fngr) => {
     notes.push(note);
 }
 
-update = () => {
+const update = () => {
     ctx.clearRect(0,0,screenWidth,screenHeight);
     updateNotes();
 }
 
-updateNotes = () => {
+const updateNotes = () => {
     var tempNotes = Array.from(notes);
 
     for (let index = 0; index < tempNotes.length; index++) {
@@ -60,7 +60,7 @@ updateNotes = () => {
     });
 }
 
-startNotes = (speed) => {
+const startNotes = (speed) => {
     if (typeof speed == "number" && speed >= 1) {
         loop = setInterval(update, speed);
         return true;
@@ -68,7 +68,7 @@ startNotes = (speed) => {
     return false;
 }
 
-stopNotes = () => {
+const stopNotes = () => {
     if (loop != 0) {
         clearInterval(loop);
         loop = 0;
@@ -78,7 +78,7 @@ stopNotes = () => {
     }
 }
 
-window.onkeydown = function (event) {
+window.onkeydown = (event) => {
     console.log(event.keyCode);
     if (event.keyCode == 73) startNotes(300);
     if (event.keyCode == 79) stopNotes();
