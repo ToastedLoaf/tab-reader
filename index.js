@@ -1,19 +1,23 @@
-let ctx = document.getElementById("ctx").getContext("2d");
-ctx.font = "30px Arial";
+import Note from './src/note'
 
-let screenWidth = 500;
-let screenHeight = 500;
+let ctx = document.getElementById('ctx').getContext('2d')
+ctx.font = '30px Arial'
 
-let notes = [];
+let screenWidth = 500
+let screenHeight = 500
 
-let noteSpeed = 50;
-let loop = 0;
+let notes = []
 
-let giveId = 0;
+let noteSpeed = 50
+let loop = 0
+
+let giveId = 0
 
 
 window.onkeydown = (event) => {
-    console.log(event.keyCode);
-    if (event.keyCode == 73) startNotes(300);
-    if (event.keyCode == 79) stopNotes();
+	console.log(event.keyCode)
+	if (event.keyCode == 73) startNotes(300)
+	if (event.keyCode == 79) stopNotes()
 }
+
+const note = new Note(ar1, arg2)
