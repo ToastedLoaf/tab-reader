@@ -1,59 +1,80 @@
-import Note from './Note'
+export let giveId = 0
+export let loop
 
-export default class Notesheet {
-  notes: Note[];
-  ctx: CanvasRenderingContext2D;
+export interface INote {
+    noteSpeed: number;
+    id: number;
+    posX: number;
+    string: number;
+    fret: number;
+    finger: number;
+    duration: number;
+}
 
-  constructor(notes: Note[]) {
-  	this.notes = notes
-  }
+// export default class Notesheet {
+//     constructor() {
+//         this.notes = Array[]
+//     }
 
-  updateNotes() {
-  	notes.forEach(element => {
-  		ctx.beginPath()
-  		ctx.lineWidth = '6'
+export const createNote = (string: number, fret: number, finger: number, duration: number, entryBeat: number) => {
+    
+}
 
-  		switch (element.finger) {
-  			case 0:
-  				ctx.strokeStyle = 'yellow'
-  				break
+export const createNotes = (ar: Array) => {
+    const result = []
 
-  			case 1:
-  				ctx.strokeStyle = 'blue'
-  				break
+    ar.forEach(element => {
+        createNote()
+        result.push(element)
+    });
+    return result
+}
 
-  			case 2:
-  				ctx.strokeStyle = 'green'
-  				break
+export const updateNotes = (ctx: CanvasRenderingContext2D) => {
+    this.notes.forEach(element => {
+        ctx.beginPath()
+        ctx.lineWidth = 6
 
-  			case 3:
-  				ctx.strokeStyle = 'red'
-  				break
+        switch (element.finger) {
+            case 0:
+                ctx.strokeStyle = 'yellow'
+                break
 
-  			default:
-  				break
-  		}
+            case 1:
+                ctx.strokeStyle = 'blue'
+                break
 
-  		ctx.fillRect(element.posX, 50 + element.string * 40, element.duration, 10)
-  		ctx.stroke()
-  	})
-  }
+            case 2:
+                ctx.strokeStyle = 'green'
+                break
 
-  startNotes(speed) {
-  	if (typeof speed == 'number' && speed >= 1 && loop == undefined) {
-  		loop = setInterval(update, speed)
-  		return true
-  	}
-  	return false
-  }
+            case 3:
+                ctx.strokeStyle = 'red'
+                break
 
-  stopNotes() {
-  	if (loop != undefined) {
-  		clearInterval(loop)
-  		loop = undefined
-  		return true
-  	} else {
-  		return false
-  	}
-  }
+            default:
+                break
+        }
+
+        ctx.fillRect(element.posX, 50 + element.string * 40, element.duration, 10)
+        ctx.stroke()
+    })
+}
+
+export const startNotes = (speed) => {
+    if (typeof speed == 'number' && speed >= 1 && loop == undefined) {
+        loop = setInterval(update, speed)
+        return true
+    }
+    return false
+}
+
+export const stopNotes = () => {
+    if (loop != undefined) {
+        clearInterval(loop)
+        loop = undefined
+        return true
+    } else {
+        return false
+    }
 }
