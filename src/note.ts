@@ -1,3 +1,7 @@
+interface INote {
+	id: number
+}
+
 class Note {
 	constructor(id, x, string, fret, finger, duration) {
 		this.noteSpeed = 50
