@@ -1,5 +1,5 @@
-const canvas = <HTMLCanvasElement> document.getElementById('canvas')
-const ctx: CanvasRenderingContext2D = canvas.getContext('2d')
+const canvas = <HTMLCanvasElement> document.getElementById('ctx')
+const ctx = <CanvasRenderingContext2D> canvas.getContext('2d')
 
 /*
  * var canvas = <SVGSVGElement><any>document.getElementById('ctx');
