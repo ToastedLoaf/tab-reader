@@ -30,7 +30,7 @@ export default class Notesheet {
                 if (speed > 25) speed = 25
                 break
         }
-        return speed
+        return this.noteSpeed
     }
 
     startNotes = () => {
