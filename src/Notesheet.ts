@@ -33,10 +33,14 @@ export default class Notesheet {
         return this.noteSpeed
     }
 
-    startNotes = () => {
+    startNotes = (screenWidth: number, screenHeight: number) => {
     	if (this.loop === undefined) {
     		this.loop = setInterval(() => {
-    			this.renderNotes(this.canvasContext)
+                
+                this.canvasContext.clearRect(0, 0, screenWidth, screenHeight)
+                this.moveNotes()
+                this.renderNotes(this.canvasContext)
+
     		}, (1000/this.noteSpeed))
             
     		return true
